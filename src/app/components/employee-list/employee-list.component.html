@@ -1,0 +1,69 @@
+
+<div class="container">
+  <div class="toolbar" role="banner">
+
+    <span class="header">Employee List</span>
+
+  </div>
+
+  <div class="list-container" *ngIf="employeeList.length">
+    <mat-card class="list-Heading" *ngIf="currentEmployees.length">
+      <h3 style="margin: 0; color: #007bff;">Current employees</h3>
+    </mat-card>
+
+
+    <div *ngFor="let employee of currentEmployees" >
+      <div class="swipe-card" (swipeleft)="showDeleteIcon(employee.id,0)" (swiperight)="hideDeleteIcon(employee.id,0)">
+      <mat-card (click)="editEmployee(employee)">
+        <h4 >{{ employee.name }}</h4>
+        <p class="text-normal">{{ employee.role }}</p>
+        <p class="text-small">From {{ employee.startDate | date:'dd MMM, yyyy' }}</p>
+      </mat-card>
+      <button
+      class="delete-button"
+      *ngIf="employee.showDelete"
+      (click)="deleteEmployee(employee.id)">
+      <mat-icon>delete_outlined</mat-icon>
+    </button>
+      <mat-divider></mat-divider>
+
+    </div>
+    </div>
+  <mat-card class="list-Heading" *ngIf="previousEmployees.length">
+    <h3 style="margin: 0; color: #007bff;">Previous employees</h3>
+  </mat-card>
+  <div *ngFor="let employee of previousEmployees" >
+    <div class="swipe-card" (swipeleft)="showDeleteIcon(employee.id,1)" (swiperight)="hideDeleteIcon(employee.id,1)">
+    <mat-card>
+      <h4 >{{ employee.name }}</h4>
+      <p class="text-normal">{{ employee.role }}</p>
+      <p class="text-small">From {{ employee.startDate | date:'dd MMM, yyyy' }}</p>
+    </mat-card>
+      <button
+      class="delete-button"
+      *ngIf="employee.showDelete"
+      (click)="deleteEmployee(employee.id)">
+      <mat-icon>delete_outlined</mat-icon>
+    </button>
+  </div>
+    <mat-divider></mat-divider>
+
+
+  </div>
+
+</div>
+<div *ngIf="!employeeList.length" class="no-employee">
+<img src="/assets/Images/no-employee.png">
+</div>
+<div class="bottom-bar">
+  <button mat-fab class="fab button-primary" (click)="gotoAddEmployee()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+
+
+
+
+
+</div>

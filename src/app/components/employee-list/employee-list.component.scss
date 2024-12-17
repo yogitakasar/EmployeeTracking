@@ -1,0 +1,171 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.list-container{
+  margin-top: 16px;
+  min-height: -webkit-fill-available;
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
+  margin-bottom: 70px;
+  width: 100%;
+  padding-bottom:35px
+}
+// .list-container{
+//   max-height: calc(100vh - 130px); /* Deduct toolbar and bottom bar height */
+//   overflow-y: auto;
+//   // height: 95%;
+// //  margin-top: 50px;
+//   margin-bottom: 70px;
+//   width: 100%;
+
+// }
+.fab {
+  position: fixed;         /* Fixes the button in one position */
+  bottom: 1rem;            /* Adjust distance from the bottom */
+  right: 1rem;             /* Adjust distance from the right */
+  z-index: 1000;           /* Ensures it appears above other elements */
+  width: 56px !important;             /* Square shape: height and width equal */
+  height: 56px !important;
+  border-radius: 10% !important;      /* Slightly rounded corners */
+  display: flex;           /* Ensures icon is centered */
+  justify-content: center;
+  align-items: center;
+  background-color: #1DA1F2; /* Example background color */
+  color: white !important;            /* Icon color */
+
+}
+.mat-icon{
+  color: white !important;
+}
+.list-Heading{
+  color: #1DA1F2;
+  height:56px;
+  padding: 16px;
+  background-color: #f4f4f4;
+
+
+}
+.employee-details{
+  padding: 16px;
+  height: 104px;
+  background-color: #ffffff;
+
+
+}
+
+mat-card {
+  padding: 16px;
+  border-radius: 0%;
+  box-shadow:none;
+}
+h3 {
+  font-weight: 500;
+  font-size: 16px;
+}
+h4 {
+  font-weight: 500;
+  font-size: 16px;
+  margin: 2px;
+}
+p{
+  margin:2px !important;
+}
+.text-normal{
+  font-size: 14px;
+  color: #838383;
+}
+.text-small{
+  font-size: 12px;
+  color: #838383;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  left: 0px;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+}
+
+.header{
+  font-size: 18px;
+  font-family: roboto;
+  margin: 10px;
+}
+.bottom-bar{
+  position: fixed;           /* Fixes the bar at the bottom of the viewport */
+  bottom: 0;
+  margin-top: auto;
+  background-color: #f4f4f4;
+  width: 100%;               /* Full width */
+  height: 90px;
+  display: flex;             /* Ensures contents are properly aligned */
+  justify-content: center;   /* Centers contents horizontally */
+  align-items: center;       /* Centers contents vertically */
+  z-index: 1000;
+
+}
+
+.swipe-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.swipe-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.delete-button {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: red;
+  color: white;
+  border: none;
+  // border-radius: 50%;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button mat-icon {
+  font-size: 20px;
+}
+.btn-container{
+  display: inline;
+  width: 80%;
+  position: relative;
+}
+.no-employee{
+    display: flex;             /* Enables flexbox */
+    justify-content: center;   /* Centers items horizontally */
+    align-items: center;       /* Centers items vertically */
+    height: 100vh;             /* Full viewport height */
+    width: 100%;               /* Full width for consistent centering */
+    padding: 1rem;             /* Optional: Add padding for smaller screens */
+    box-sizing: border-box;
+  }

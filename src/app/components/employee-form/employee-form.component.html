@@ -1,0 +1,83 @@
+<div>
+  <div class="toolbar" role="banner">
+
+
+    <div class="header-container">
+      <span class="header">{{employeeId ? "Edit " : "Add "}} Employee Details</span>
+      <mat-icon class="icon-right delete-icon" (click)="deleteEmployee()" *ngIf="employeeId">delete_outlined</mat-icon>
+    </div>
+
+
+  </div>
+<div class="form-container">
+  <form [formGroup]="employeeForm">
+    <!-- Employee Name -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Employee name</mat-label>
+      <input matInput placeholder="Employee name" class="custom-placeholder" formControlName="name" />
+      <mat-icon matPrefix>person_outlined</mat-icon>
+    </mat-form-field>
+
+    <!-- Select Role -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="product_designer">Product Designer</mat-option>
+        <mat-option value="flatter_developer">Flatter Developer</mat-option>
+        <mat-option value="qa_designer">QA Tester</mat-option>
+        <mat-option value="product_owner">Product Owner</mat-option>
+      </mat-select>
+      <mat-icon matPrefix>work_outlined</mat-icon>
+    </mat-form-field>
+    <!-- Date Range -->
+    <div class="date-range">
+      <mat-form-field appearance="outline" class="date-field">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="startDate"  [max]="maxDate"  (dateInput)="onDateSelect($event)"  (dateChange)="onDateSelect($event)"/>
+        <mat-datepicker-toggle matPrefix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1 [calendarHeaderComponent]="exampleHeader"  >
+          <mat-datepicker-actions>
+            <div>
+              <span class="selected-date">{{selectedDate |date:'dd MMM, yyyy'}}</span>
+            </div>
+            <div>
+              <button mat-stroked-button color="accent" class="button-accent" matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" class = "button-primary" matDatepickerApply>Save</button>
+            </div>
+
+
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="date-field">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="endDate"  [max]="maxDate" />
+        <mat-datepicker-toggle matPrefix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 [calendarHeaderComponent]="exampleHeader" >
+          <mat-datepicker-actions>
+            <div>
+              <span class="selected-date">{{selectedDate |date:'dd MMM, yyyy'}}</span>
+            </div>
+            <div>
+              <button mat-stroked-button color="accent" class="button-accent" matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" class = "button-primary" matDatepickerApply>Save</button>
+            </div>
+
+
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Action Buttons -->
+    <mat-divider></mat-divider>
+    <div class="button-container">
+
+      <button mat-stroked-button color="accent" class="button-accent" (click)="onCancel()">Cancel</button>
+      <button mat-raised-button color="primary" class = "button-primary" (click)="submit()">Save</button>
+    </div>
+  </form>
+</div>
+</div>
+

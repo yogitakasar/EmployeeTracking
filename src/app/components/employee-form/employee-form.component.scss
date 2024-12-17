@@ -1,0 +1,133 @@
+
+.form-container {
+  max-width: 400px;
+ // margin: 0 auto;
+  padding: 1rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.date-range {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.date-field {
+  flex: 1;
+}
+.margin{
+  margin: 8px;
+}
+
+.button-group {
+  margin: 2px;
+ position: fixed;
+ display: flex;
+ justify-content: end;
+ bottom: 0;
+ width: 99%;
+ text-align: right;
+ padding: 0.5rem 0.5rem 0.5rem 0;
+}
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  left: 0px;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+}
+
+.header{
+  font-size: 18px;
+  font-family: roboto;
+  margin: 10px;
+}
+.example-button-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+.example-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.example-header-label {
+  // flex: 1;
+  height: 1em;
+  font-weight: 500;
+  text-align: center;
+}
+.headerButton{
+
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 120px;
+}
+
+.button-container {
+  position: fixed;
+  bottom: 16px; /* Space from the bottom of the screen */
+  right: 16px;  /* Space from the right side of the screen */
+  display: flex; /* Align buttons horizontally */
+  gap: 8px; /* Add space between buttons */
+}
+
+.header-container {
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-icon{
+  padding: 16px;
+  color: #ffffff !important;
+  cursor: pointer;
+}
+::ng-deep .mat-datepicker-actions{
+  justify-content: space-between !important;
+}
+
+
+
+/* Responsive design for mobile and tablet */
+@media (min-width: 768px) {
+  .form-container {
+    max-width: 100%;
+      padding-left: 26.5rem;
+      padding-right: 28.5rem;
+  }
+  .button-container {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 16px; /* Space from the bottom of the screen */
+    right: 16px;  /* Space from the right side of the screen */
+    display: flex; /* Align buttons horizontally */
+    gap: 8px; /* Add space between buttons */
+  }
+
+}
+
+
+
+
+

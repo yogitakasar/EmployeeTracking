@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+
+
+// Define custom color palette based on your colors
+$mat-custom: (
+  50: #e1f3fc,
+  100: #b3e0f9,
+  200: #80ccf6,
+  300: #4db8f3,
+  400: #26aaf0,
+  500: #1DA1F2, // Main primary color
+  600: #1a96e8,
+  700: #1884d6,
+  800: #1572c4,
+  900: #1157a1,
+  A100: #b3e0f9,
+  A200: #80ccf6,
+  A400: #26aaf0,
+  A700: #1884d6,
+  contrast: (
+    50: #FFFFFF,  // Black for lightest shades
+    100: #FFFFFF, // Black for light shades
+    200: #FFFFFF,
+    300: #FFFFFF,
+    400: #FFFFFF,
+    500: #FFFFFF, // White for darker shades
+    600: #FFFFFF,
+    700: #FFFFFF,
+    800: #FFFFFF,
+    900: #FFFFFF  // White for darkest shades
+  )
+);
+
+// Create a palette using `mat.define-palette`
+$my-app-primary: mat.define-palette($mat-custom, 500);
+
+// Define accent and warn palettes
+$my-app-accent: mat.define-palette($mat-custom, A200);
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create a theme
+$my-app-theme: mat.define-light-theme((
+  color: (
+    primary: $my-app-primary,
+    accent: $my-app-accent,
+    warn: $my-app-warn,
+  )
+));
+
+$primary :#1DA1F2;
+$accent : #b3e0f9;
+// Include Angular Material component themes
+@include mat.all-component-themes($my-app-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.container {
+  height: 100%;
+}
+
+mat-icon, mat-icon.mat-primary, mat-icon.mat-accent, mat-icon.mat-warn {
+  color: $primary !important;
+}
+::ng-deep .mat-form-field {
+  font-size: 12px; // example
+}
+
+.button-primary{
+  color:white !important;
+  background-color: $primary;
+
+}
+.button-accent{
+  color: $primary !important;
+  background-color: $accent !important;
+}
+.mat-mdc-select-arrow {
+  color: $primary !important;
+}
